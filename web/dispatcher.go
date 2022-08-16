@@ -8,12 +8,19 @@ import (
 	"net"
 	"net/http"
 	"time"
+	"os"
 )
 
 func main() {
 	rand.Seed(time.Now().UnixNano())
 
-	fwd := &forwarder{"words", 8080}
+	words_ip := "words"
+	if envvalue := os.Getenv("WORDS_IP"); envvalue != "" {
+		words_ip = envvalue
+	}
+
+	fwd := &forwarder{words_ip, 8080}
+	// fwd := &forwarder{"words", 8080}
 	http.Handle("/words/", http.StripPrefix("/words", fwd))
 	http.Handle("/", http.FileServer(http.Dir("static")))
 
