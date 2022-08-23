@@ -1,8 +1,8 @@
 name: ci
 on:
   push:
-    branches:
-      - 'github-action'
+    paths:
+      - 'db/**'
       
 jobs:
   build:
