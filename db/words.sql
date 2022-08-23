@@ -19,7 +19,7 @@ INSERT INTO nouns(word) VALUES
   ('mermaid'),
   ('fjørd'),
   ('legø'),
-  ('flødebolle'),
+  ('flødebollA'),
   ('smørrebrød');
 
 INSERT INTO verbs(word) VALUES
